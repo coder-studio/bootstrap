@@ -1,0 +1,18 @@
+{
+    "name": "coder-studio/bootstrap",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladimir Toropchin",
+            "email": "toropchin_vv@mail.ru"
+        }
+    ],
+    "require": {},
+    "minimum-stability": "dev",
+
+    "autoload": {
+        "psr-4": {
+            "CoderStudio\\Bootstrap\\": "src/"
+        }
+    }
+}
