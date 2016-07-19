@@ -24,6 +24,20 @@ class Bootstrap {
 
     public function preparation($type, $name, $label = null, $value = null, $help = null, $addon_left = null, $addon_right = null, $state = null, $size = null, $params = null, $options = null)
     {
+        $name_a = null;
+        $n = explode('[', $name);
+        if(count($n) > 1)
+        {
+            $name_a = mb_strcut($name, strlen($n[0]));
+            $key = trim($name_a, '[]');
+            $id = "$n[0]-$key";
+        }
+        else
+        {
+            $id = $name;
+        }
+        $name = $n[0];
+
         if($params)
         {
             foreach($params as $k => $v)
@@ -41,23 +55,14 @@ class Bootstrap {
                 {
                     $p[] = $v;
                 }
+
+                if($k == 'id')
+                {
+                    $id = $v;
+                }
             }
             $params = $p;
         }
-
-        $name_a = null;
-        $n = explode('[', $name);
-        if(count($n) > 1)
-        {
-            $name_a = mb_strcut($name, strlen($n[0]));
-            $key = trim($name_a, '[]');
-            $id = "$n[0]-$key";
-        }
-        else
-        {
-            $id = $name;
-        }
-        $name = $n[0];
 
         $checked = null;
         if(old($name) and !is_array(old($name)))
