@@ -4,7 +4,6 @@
 The package allows to use form controls of the Twitter Bootstrap 4 in the Laravel 5.x Blade template.
 
 ## Installation
-Install with composer the Composer.
 
 ```sh
 $ composer require coder-studion/bootstrap
