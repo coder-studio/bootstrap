@@ -1,4 +1,4 @@
-<div class="form-group @if($state)has-{{ $state }}@endif @if($feedback)has-{{ $feedback }}@endif">
+<div class="form-group">
     @if($label)
         @include('bootstrap::label')
     @endif
@@ -13,9 +13,6 @@
 
             @if($addon_right)
                 <div class="input-group-addon">{!! $addon_right !!}</div>
-            @endif
-            @if($state_ico)
-                <span class="{!! $state_ico !!} form-control-feedback" aria-hidden="true"></span>
             @endif
         </div>
     @else

@@ -1,1 +1,1 @@
-<input type="{{ $type }}" name="{{ $name }}{{ $name_a }}" class="form-control {{ $class }} @if($size)input-{{ $size }}@endif" id="{{ $id }}" value="{{ $value or null }}" {!! $params !!}>
+<input type="{{ $type }}" name="{{ $name }}{{ $name_a }}" class="form-control {{ $class }} @if($size)form-control-{{ $size }}@endif {{ $state or '' }}" id="{{ $id }}" value="{{ $value or null }}" {!! $params !!}>

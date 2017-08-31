@@ -95,17 +95,9 @@ class Bootstrap {
             }
         }
 
-        $feedback = null;
-        $state_ico = null;
-
         if(Session::get('errors') != null)
         {
-            $state = 'error';
-            $feedback = true;
-            if($addon_right == null)
-            {
-                $state_ico = 'glyphicon glyphicon-remove';
-            }
+            $state = 'is-invalid';
             if(isset($key) and Session::get('errors')->first("$name.$key") != '')
             {
                 $help = Session::get('errors')->first("$name.$key");
@@ -126,11 +118,7 @@ class Bootstrap {
             }
             else
             {
-                $state = 'success';
-                if($addon_right == null)
-                {
-                    $state_ico = 'glyphicon glyphicon-ok';
-                }
+                $state = 'is-valid';
             }
         }
 
@@ -148,8 +136,6 @@ class Bootstrap {
             'size' => $size,
             'params' => @implode(' ', $params),
             'class' => @implode(' ', $class),
-            'feedback' => $feedback,
-            'state_ico' => $state_ico,
             'options' => $options,
             'checked' => $checked,
         ];
