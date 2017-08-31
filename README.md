@@ -40,7 +40,8 @@ Add to config file in providers and aliases:
 //radio
 {!! Bootstrap::radio(name : string, [label : string = null, value : string = null, help : string = null, state : string = null, params : array|null = null]) !!}
 ```
-##Examples
+
+## Examples
 
 ```blade
 <form method="POST" action="asset('submit')">
