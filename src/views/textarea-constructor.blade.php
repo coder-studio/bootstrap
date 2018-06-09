@@ -1,5 +1,5 @@
-<div class="form-group">
-    @if($label)
+<div class="@if($floating_label) form-label-group @else form-group @endif">
+    @if($label && !$floating_label)
         @include('bootstrap::label')
     @endif
 
@@ -10,6 +10,9 @@
             @endif
 
             @include('bootstrap::textarea')
+            @if($label && $floating_label)
+                @include('bootstrap::label')
+            @endif
 
             @if($addon_right)
                 <div class="input-group-addon">{!! $addon_right !!}</div>
@@ -17,6 +20,9 @@
         </div>
     @else
         @include('bootstrap::textarea')
+        @if($label && $floating_label)
+            @include('bootstrap::label')
+        @endif
     @endif
 
     @if($help)

@@ -1,8 +1,10 @@
+
 # Form controls Bootstrap-4 for Laravel 5.x
 
 The package allows to use form controls of the Twitter Bootstrap 4 in the Laravel 5.x Blade template.
 
 ## Installation
+Install with composer the Composer.
 
 ```sh
 $ composer require coder-studion/bootstrap
@@ -11,44 +13,66 @@ $ composer require coder-studion/bootstrap
 Add to config file in providers and aliases:
 
 ```php
- 'providers' => [
-     ...
-     CoderStudio\Bootstrap\Providers\BootstrapServiceProvider::class,
- ]
- 
- 'aliases' => [
-        ...
-        'Bootstrap' => CoderStudio\Bootstrap\Facades\Bootstrap::class,
-    ],
+'providers' => [
+...
+CoderStudio\Bootstrap\Providers\BootstrapServiceProvider::class,
+]
+
+'aliases' => [
+...
+'Bootstrap' => CoderStudio\Bootstrap\Facades\Bootstrap::class,
+],
 ```
 
-## Usage in Blade template
-
+## Elements:
 ```php
-// input
-{!! Bootstrap::input(type : string, name : string, [label : string = null, value : string = null, help : string = null, addon_left : string = null, addon_right : string = null, state : string = null, size : string = null, $params : array|null = null]) !!}
-
-// textarea
-{!! Bootstrap::textarea(name : string, [label : string = null, value : string = null, help : string = null, addon_left : string = null, addon_right : string = null, state : string = null, size : string = null, params : array|null = null]) !!}
-
-//select
-{!! Bootstrap::select(name : string, options : array, [selected : integer|string = null, label : string = null, help : string = null, state : string = null, size : string = null, params : array|null = null]) !!}
-
-//checkbox
-{!! Bootstrap::checkbox(name: string, [label : string = null, value : string = null, help : string = null, state : string = null, params : array|null = null]) !!}
-
-//radio
-{!! Bootstrap::radio(name : string, [label : string = null, value : string = null, help : string = null, state : string = null, params : array|null = null]) !!}
+Bootstrap::button($name, $value = null);
+Bootstrap::checkbox($name, $value = null);
+Bootstrap::hidden($name, $value = null);
+Bootstrap::password($name, $value = null);
+Bootstrap::reset($name, $value = null);
+Bootstrap::submit($name, $value = null);
+Bootstrap::text($name, $value = null);
+Bootstrap::color($name, $value = null);
+Bootstrap::date($name, $value = null);
+Bootstrap::datetime($name, $value = null);
+Bootstrap::datetime_local($name, $value = null);
+Bootstrap::email($name, $value = null);
+Bootstrap::number($name, $value = null);
+Bootstrap::range($name, $value = null);
+Bootstrap::search($name, $value = null);
+Bootstrap::tel($name, $value = null);
+Bootstrap::time($name, $value = null);
+Bootstrap::url($name, $value = null);
+Bootstrap::month($name, $value = null);
+Bootstrap::week($name, $value = null);
+Bootstrap::textarea($name, $value = null);
+Bootstrap::select($name, $value = null);
 ```
 
-## Examples
+## Methods:
+```php
+label(string $label)
+help(string $help)
+addonLeft(string $addon_left)
+addonRight(string $addon_right)
+valid()
+invalid()
+sm()
+lg()
+floatingLabel()
+params(array $params)
+options(array $options)
+id(string $id)
+cssClass(string $class)
+placeholder(string $placeholder)
+rows(string $rows)
+get()
+```
 
+## Usage in Blade template:
 ```blade
 <form method="POST" action="asset('submit')">
-    {!! Bootstrap::input('text', 'user_name', 'User name', 'Vladimir', 'Enter your username', null, null, null, 'lg', ['placeholder' => 'Enter your username']) !!}
-    {!! Bootstrap::textarea('description', 'Description', null, 'Enter description', null, null, null, 'lg', ['placeholder' => 'Enter description']) !!}
-    {!! Bootstrap::select('cars' [1 => 'Ford', 2 => 'Mitsubishi'], 2, 'Select car', null, null, null, [disabled]) !!}
-    {!! Bootstrap::checkbox('cars[]', 'Ford', 1, null, null, ['checked']) !!}
-    {!! Bootstrap::radio('car', 'Ford', 1, null, null, ['checked']) !!}
+    {!! Bootstrap::text('inputName')->label('label name')->placeholder('label name')->floatingLabel()->id("idName")->params()->get() !!}    
 </form>
 ```
